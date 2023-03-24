@@ -1,0 +1,844 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Feb 19 14:02:53 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3448 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='allyTest.AmazonAllyTest.generateReport()'><b>generateReport</b><br>Test class: allyTest.AmazonAllyTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Runtime.evaluate threw exception: unknown
+  (Session info: chrome=110.0.5481.104)
+Build info: version: &apos;4.7.2&apos;, revision: &apos;4d4020c3b7&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f4731424cd4a5126f0ac70dd1f16e033, executeScript {script=return axeData(&apos;{&quot;standard&quot;:null,&quot;ignoreCodes&quot;:null,&quot;pageTitle&quot;:null}&apos;);async function axeData(params) {
+    const obj = JSON.parse(params);
+    await injectAxeScript();
+    var results = await runAxe()
+    results.id = &apos;id_&apos; + (Date.now().toString(36) + Math.random().toString(36).substr(2, 5));
+    results.title = obj.pageTitle == null ? document.title : obj.pageTitle;
+    results.dimension = window.innerWidth + &apos; X &apos; + window.innerHeight;
+    results.device = device();
+    results.browser = getBrowser();
+    results.date = getFormattedDate();
+    return results;
+}
+
+function getBrowser() {
+    const userAgent = navigator.userAgent;
+    var browser = &quot;Unkown&quot;;
+    // Detect browser name
+    browser = (/ucbrowser/i).test(userAgent) ? &apos;UCBrowser&apos; : browser;
+    browser = (/edg/i).test(userAgent) ? &apos;Edge&apos; : browser;
+    browser = (/googlebot/i).test(userAgent) ? &apos;GoogleBot&apos; : browser;
+    browser = (/chromium/i).test(userAgent) ? &apos;Chromium&apos; : browser;
+    browser = (/firefox|fxios/i).test(userAgent) &amp;&amp; !(/seamonkey/i).test(userAgent) ? &apos;Firefox&apos; : browser;
+    browser = (/; msie|trident/i).test(userAgent) &amp;&amp; !(/ucbrowser/i).test(userAgent) ? &apos;IE&apos; : browser;
+    browser = (/chrome|crios/i).test(userAgent) &amp;&amp; !(/opr|opera|chromium|edg|ucbrowser|googlebot/i).test(userAgent) ? &apos;Chrome&apos; : browser;
+    browser = (/safari/i).test(userAgent) &amp;&amp; !(/chromium|edg|ucbrowser|chrome|crios|opr|opera|fxios|firefox/i).test(userAgent) ? &apos;Safari&apos; : browser;
+    browser = (/opr|opera/i).test(userAgent) ? &apos;Opera&apos; : browser;
+
+    // detect browser version
+    switch (browser) {
+        case &apos;UCBrowser&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(ucbrowser)\/([\d\.]+)/i);
+        case &apos;Edge&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(edge|edga|edgios|edg)\/([\d\.]+)/i);
+        case &apos;GoogleBot&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(googlebot)\/([\d\.]+)/i);
+        case &apos;Chromium&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(chromium)\/([\d\.]+)/i);
+        case &apos;Firefox&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(firefox|fxios)\/([\d\.]+)/i);
+        case &apos;Chrome&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(chrome|crios)\/([\d\.]+)/i);
+        case &apos;Safari&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(safari)\/([\d\.]+)/i);
+        case &apos;Opera&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(opera|opr)\/([\d\.]+)/i);
+        case &apos;IE&apos;:
+            const version = browserVersion(userAgent, /(trident)\/([\d\.]+)/i);
+            // IE version is mapped using trident version
+            // IE/8.0 = Trident/4.0, IE/9.0 = Trident/5.0
+            return version ? browser + &apos; &apos; + parseFloat(version) + 4.0 : browser + &apos; &apos; + 7.0;
+        default:
+            return &apos;Unknown 0.0.0.0&apos;;
+    }
+}
+
+function browserVersion(userAgent, regex) {
+    return userAgent.match(regex) ? userAgent.match(regex)[2] : null;
+}
+
+function device() {
+    var width = window.innerWidth;
+    if (width &lt; 768) {
+        return &apos;Phone&apos;;
+    } else if (width &lt; 992) {
+        return &apos;Tablet&apos;;
+    } else if (width &lt; 1200) {
+        return &apos;Small Laptop&apos;;
+    } else {
+        return &apos;Laptop/Desktop&apos;;
+    }
+}
+
+function getFormattedDate() {
+    var date = new Date();
+    var formattedDate = date.getDate() + &quot;/&quot; + (date.getMonth() + 1) + &quot;/&quot; + date.getFullYear() + &quot; &quot; + date.getHours() + &quot;:&quot; + date.getMinutes() + &quot;:&quot; + date.getSeconds();
+    return formattedDate;
+}
+
+function runAxe() {
+    return new Promise(function (resolve, reject) {
+        axe.run(document, {
+            runOnly: {type: &apos;tag&apos;, values: [&apos;wcag2a&apos;, &apos;wcag2aa&apos;, &apos;section508&apos;]},
+            resultTypes: [&apos;violations&apos;, &apos;incomplete&apos;, &apos;inapplicable&apos;],
+            rules: { &apos;accesskeys&apos;: { enabled: false } },
+            reporter: &apos;v2&apos;
+        }).then(results =&gt; resolve(results))
+    });
+}
+
+function injectAxeScript() {
+    return new Promise((resolve, reject) =&gt; {
+        const script = document.createElement(&apos;script&apos;);
+        script.src = &quot;https://cdn.jsdelivr.net/npm/axe-core@latest/axe.min.js&quot;;
+        script.addEventListener(&apos;load&apos;, resolve);
+        script.addEventListener(&apos;error&apos;, e =&gt; reject(e.error));
+        document.head.appendChild(script);
+    });
+}, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\swapn\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59905}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59905/devtoo..., se:cdpVersion: 110.0.5481.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f4731424cd4a5126f0ac70dd1f16e033
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:535)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:472)
+	at io.github.sridharbandi.util.A11y.execute(A11y.java:52)
+	at io.github.sridharbandi.AxeRunner.execute(AxeRunner.java:27)
+	at allyTest.AmazonAllyTest.generateReport(AmazonAllyTest.java:93)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 37 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1810970264", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1810970264'><pre>org.openqa.selenium.WebDriverException: unknown error: Runtime.evaluate threw exception: unknown
+  (Session info: chrome=110.0.5481.104)
+Build info: version: &apos;4.7.2&apos;, revision: &apos;4d4020c3b7&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f4731424cd4a5126f0ac70dd1f16e033, executeScript {script=return axeData(&apos;{&quot;standard&quot;:null,&quot;ignoreCodes&quot;:null,&quot;pageTitle&quot;:null}&apos;);async function axeData(params) {
+    const obj = JSON.parse(params);
+    await injectAxeScript();
+    var results = await runAxe()
+    results.id = &apos;id_&apos; + (Date.now().toString(36) + Math.random().toString(36).substr(2, 5));
+    results.title = obj.pageTitle == null ? document.title : obj.pageTitle;
+    results.dimension = window.innerWidth + &apos; X &apos; + window.innerHeight;
+    results.device = device();
+    results.browser = getBrowser();
+    results.date = getFormattedDate();
+    return results;
+}
+
+function getBrowser() {
+    const userAgent = navigator.userAgent;
+    var browser = &quot;Unkown&quot;;
+    // Detect browser name
+    browser = (/ucbrowser/i).test(userAgent) ? &apos;UCBrowser&apos; : browser;
+    browser = (/edg/i).test(userAgent) ? &apos;Edge&apos; : browser;
+    browser = (/googlebot/i).test(userAgent) ? &apos;GoogleBot&apos; : browser;
+    browser = (/chromium/i).test(userAgent) ? &apos;Chromium&apos; : browser;
+    browser = (/firefox|fxios/i).test(userAgent) &amp;&amp; !(/seamonkey/i).test(userAgent) ? &apos;Firefox&apos; : browser;
+    browser = (/; msie|trident/i).test(userAgent) &amp;&amp; !(/ucbrowser/i).test(userAgent) ? &apos;IE&apos; : browser;
+    browser = (/chrome|crios/i).test(userAgent) &amp;&amp; !(/opr|opera|chromium|edg|ucbrowser|googlebot/i).test(userAgent) ? &apos;Chrome&apos; : browser;
+    browser = (/safari/i).test(userAgent) &amp;&amp; !(/chromium|edg|ucbrowser|chrome|crios|opr|opera|fxios|firefox/i).test(userAgent) ? &apos;Safari&apos; : browser;
+    browser = (/opr|opera/i).test(userAgent) ? &apos;Opera&apos; : browser;
+
+    // detect browser version
+    switch (browser) {
+        case &apos;UCBrowser&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(ucbrowser)\/([\d\.]+)/i);
+        case &apos;Edge&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(edge|edga|edgios|edg)\/([\d\.]+)/i);
+        case &apos;GoogleBot&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(googlebot)\/([\d\.]+)/i);
+        case &apos;Chromium&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(chromium)\/([\d\.]+)/i);
+        case &apos;Firefox&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(firefox|fxios)\/([\d\.]+)/i);
+        case &apos;Chrome&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(chrome|crios)\/([\d\.]+)/i);
+        case &apos;Safari&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(safari)\/([\d\.]+)/i);
+        case &apos;Opera&apos;:
+            return browser + &apos; &apos; + browserVersion(userAgent, /(opera|opr)\/([\d\.]+)/i);
+        case &apos;IE&apos;:
+            const version = browserVersion(userAgent, /(trident)\/([\d\.]+)/i);
+            // IE version is mapped using trident version
+            // IE/8.0 = Trident/4.0, IE/9.0 = Trident/5.0
+            return version ? browser + &apos; &apos; + parseFloat(version) + 4.0 : browser + &apos; &apos; + 7.0;
+        default:
+            return &apos;Unknown 0.0.0.0&apos;;
+    }
+}
+
+function browserVersion(userAgent, regex) {
+    return userAgent.match(regex) ? userAgent.match(regex)[2] : null;
+}
+
+function device() {
+    var width = window.innerWidth;
+    if (width &lt; 768) {
+        return &apos;Phone&apos;;
+    } else if (width &lt; 992) {
+        return &apos;Tablet&apos;;
+    } else if (width &lt; 1200) {
+        return &apos;Small Laptop&apos;;
+    } else {
+        return &apos;Laptop/Desktop&apos;;
+    }
+}
+
+function getFormattedDate() {
+    var date = new Date();
+    var formattedDate = date.getDate() + &quot;/&quot; + (date.getMonth() + 1) + &quot;/&quot; + date.getFullYear() + &quot; &quot; + date.getHours() + &quot;:&quot; + date.getMinutes() + &quot;:&quot; + date.getSeconds();
+    return formattedDate;
+}
+
+function runAxe() {
+    return new Promise(function (resolve, reject) {
+        axe.run(document, {
+            runOnly: {type: &apos;tag&apos;, values: [&apos;wcag2a&apos;, &apos;wcag2aa&apos;, &apos;section508&apos;]},
+            resultTypes: [&apos;violations&apos;, &apos;incomplete&apos;, &apos;inapplicable&apos;],
+            rules: { &apos;accesskeys&apos;: { enabled: false } },
+            reporter: &apos;v2&apos;
+        }).then(results =&gt; resolve(results))
+    });
+}
+
+function injectAxeScript() {
+    return new Promise((resolve, reject) =&gt; {
+        const script = document.createElement(&apos;script&apos;);
+        script.src = &quot;https://cdn.jsdelivr.net/npm/axe-core@latest/axe.min.js&quot;;
+        script.addEventListener(&apos;load&apos;, resolve);
+        script.addEventListener(&apos;error&apos;, e =&gt; reject(e.error));
+        document.head.appendChild(script);
+    });
+}, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\swapn\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59905}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59905/devtoo..., se:cdpVersion: 110.0.5481.104, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f4731424cd4a5126f0ac70dd1f16e033
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:535)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:472)
+	at io.github.sridharbandi.util.A11y.execute(A11y.java:52)
+	at io.github.sridharbandi.AxeRunner.execute(AxeRunner.java:27)
+	at allyTest.AmazonAllyTest.generateReport(AmazonAllyTest.java:93)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:823)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:792)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:768)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>allyTest.AmazonAllyTest@942a29c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='allyTest.AmazonAllyTest.amazonAllyTest()'><b>amazonAllyTest</b><br>Test class: allyTest.AmazonAllyTest</td>
+<td><div><pre>java.lang.AssertionError: Found 3 accessibility violations:
+1) Elements must have sufficient color contrast: https://dequeuniversity.com/rules/axe/3.1/color-contrast?application=axeAPI
+  a) [&quot;._6ltj &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 4.23 (foreground color: #1877f2, background color: #ffffff, font size: 10.5pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  b) [&quot;#u_0_0_mI&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 2.61 (foreground color: #ffffff, background color: #42b72a, font size: 12.8pt, font weight: bold). Expected contrast ratio of 4.5:1
+
+
+  c) [&quot;a[href$=\&quot;hi-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  d) [&quot;a[dir=\&quot;rtl\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  e) [&quot;a[href$=\&quot;pa-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  f) [&quot;a[href$=\&quot;bn-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  g) [&quot;a[href$=\&quot;gu-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  h) [&quot;a[href$=\&quot;mr-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  i) [&quot;a[href$=\&quot;ta-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  j) [&quot;a[href$=\&quot;te-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  k) [&quot;a[href$=\&quot;ml-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  l) [&quot;a[href$=\&quot;kn-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  m) [&quot;a[href$=\&quot;reg/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  n) [&quot;a[href$=\&quot;login/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  o) [&quot;a[href$=\&quot;messenger.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  p) [&quot;a[href$=\&quot;lite/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  q) [&quot;a[title=\&quot;Browse\\ our\\ Watch\\ videos\\.\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  r) [&quot;a[href$=\&quot;places/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  s) [&quot;a[href$=\&quot;games/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  t) [&quot;a[href$=\&quot;marketplace/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  u) [&quot;a[href$=\&quot;pay.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  v) [&quot;a[href$=\&quot;oculus.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  w) [&quot;a[href$=\&quot;portal.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  x) [&quot;a[title=\&quot;Take\\ a\\ look\\ at\\ Instagram\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  y) [&quot;a[href$=\&quot;bulletin.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  z) [&quot;a[href$=\&quot;fundraisers/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  aa) [&quot;a[href$=\&quot;directory/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ab) [&quot;li:nth-child(16) &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ac) [&quot;li:nth-child(17) &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ad) [&quot;li:nth-child(18) &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ae) [&quot;a[href$=\&quot;explore/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  af) [&quot;a[href$=\&quot;about.meta.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ag) [&quot;a[title=\&quot;Advertise\\ on\\ Facebook\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ah) [&quot;a[title=\&quot;Create\\ a\\ Page\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ai) [&quot;a[title=\&quot;Develop\\ on\\ our\\ platform\\.\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  aj) [&quot;a[href=\&quot;/careers/?ref=pf\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ak) [&quot;a[href$=\&quot;cookies/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  al) [&quot;._41ug&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  am) [&quot;a[href=\&quot;/policies?ref=pf\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  an) [&quot;a[href=\&quot;/help/?ref=pf\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ao) [&quot;a[href=\&quot;help/637205020878504\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+2) Page must contain a level-one heading: https://dequeuniversity.com/rules/axe/3.1/page-has-heading-one?application=axeAPI
+  a) [&quot;#facebook&quot;]
+    Fix all of the following:
+      Page must have a level-one heading
+
+
+3) All page content must be contained by landmarks: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+  a) [&quot;#facebook&quot;]
+    Fix any of the following:
+      Some page content is not contained by landmarks
+
+ expected [true] but found [false]
+	at allyTest.AmazonAllyTest.amazonAllyTest(AmazonAllyTest.java:52)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace287859212", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace287859212'><pre>java.lang.AssertionError: Found 3 accessibility violations:
+1) Elements must have sufficient color contrast: https://dequeuniversity.com/rules/axe/3.1/color-contrast?application=axeAPI
+  a) [&quot;._6ltj &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 4.23 (foreground color: #1877f2, background color: #ffffff, font size: 10.5pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  b) [&quot;#u_0_0_mI&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 2.61 (foreground color: #ffffff, background color: #42b72a, font size: 12.8pt, font weight: bold). Expected contrast ratio of 4.5:1
+
+
+  c) [&quot;a[href$=\&quot;hi-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  d) [&quot;a[dir=\&quot;rtl\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  e) [&quot;a[href$=\&quot;pa-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  f) [&quot;a[href$=\&quot;bn-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  g) [&quot;a[href$=\&quot;gu-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  h) [&quot;a[href$=\&quot;mr-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  i) [&quot;a[href$=\&quot;ta-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  j) [&quot;a[href$=\&quot;te-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  k) [&quot;a[href$=\&quot;ml-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  l) [&quot;a[href$=\&quot;kn-in.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  m) [&quot;a[href$=\&quot;reg/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  n) [&quot;a[href$=\&quot;login/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  o) [&quot;a[href$=\&quot;messenger.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  p) [&quot;a[href$=\&quot;lite/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  q) [&quot;a[title=\&quot;Browse\\ our\\ Watch\\ videos\\.\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  r) [&quot;a[href$=\&quot;places/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  s) [&quot;a[href$=\&quot;games/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  t) [&quot;a[href$=\&quot;marketplace/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  u) [&quot;a[href$=\&quot;pay.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  v) [&quot;a[href$=\&quot;oculus.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  w) [&quot;a[href$=\&quot;portal.facebook.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  x) [&quot;a[title=\&quot;Take\\ a\\ look\\ at\\ Instagram\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  y) [&quot;a[href$=\&quot;bulletin.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  z) [&quot;a[href$=\&quot;fundraisers/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  aa) [&quot;a[href$=\&quot;directory/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ab) [&quot;li:nth-child(16) &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ac) [&quot;li:nth-child(17) &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ad) [&quot;li:nth-child(18) &gt; a&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ae) [&quot;a[href$=\&quot;explore/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  af) [&quot;a[href$=\&quot;about.meta.com/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ag) [&quot;a[title=\&quot;Advertise\\ on\\ Facebook\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ah) [&quot;a[title=\&quot;Create\\ a\\ Page\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ai) [&quot;a[title=\&quot;Develop\\ on\\ our\\ platform\\.\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  aj) [&quot;a[href=\&quot;/careers/?ref=pf\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ak) [&quot;a[href$=\&quot;cookies/\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  al) [&quot;._41ug&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  am) [&quot;a[href=\&quot;/policies?ref=pf\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  an) [&quot;a[href=\&quot;/help/?ref=pf\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+  ao) [&quot;a[href=\&quot;help/637205020878504\&quot;]&quot;]
+    Fix any of the following:
+      Element has insufficient color contrast of 3.33 (foreground color: #8a8d91, background color: #ffffff, font size: 9.0pt, font weight: normal). Expected contrast ratio of 4.5:1
+
+
+2) Page must contain a level-one heading: https://dequeuniversity.com/rules/axe/3.1/page-has-heading-one?application=axeAPI
+  a) [&quot;#facebook&quot;]
+    Fix all of the following:
+      Page must have a level-one heading
+
+
+3) All page content must be contained by landmarks: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+  a) [&quot;#facebook&quot;]
+    Fix any of the following:
+      Some page content is not contained by landmarks
+
+ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1577)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at allyTest.AmazonAllyTest.amazonAllyTest(AmazonAllyTest.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>allyTest.AmazonAllyTest@942a29c</td></tr>
+</table><p>
+</body>
+</html>

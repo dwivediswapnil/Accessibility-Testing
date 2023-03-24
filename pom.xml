@@ -17,7 +17,13 @@
 			<version>7.7.1</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- 	<dependency>
+		<dependency>
+			<groupId>io.github.sridharbandi</groupId>
+			<artifactId>java-a11y</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+
+		<!-- 		<dependency>
 			<groupId>com.deque.html.axe-core</groupId>
 			<artifactId>selenium</artifactId>
 			<version>4.1.2</version>
@@ -28,5 +34,12 @@
 			<version>3.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.hemantsonu20</groupId>
+			<artifactId>json-merge</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+
 	</dependencies>
 </project>

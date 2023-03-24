@@ -5,7 +5,7 @@
     <classes>
       <class name="allyTest.AmazonAllyTest">
         <methods>
-          <include name="amazonAllyTest"/>
+          <include name="testAccessabilityWithTextLinked"/>
           <include name="setup"/>
         </methods>
       </class> <!-- allyTest.AmazonAllyTest -->
